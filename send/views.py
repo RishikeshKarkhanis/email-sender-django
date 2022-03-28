@@ -11,7 +11,7 @@ def send(request):
 
     msg = MIMEMultipart()
     msg['Subject'] = f'{request.POST["subject"]}'
-    msg['From'] = 'rishikeshkarkhanis0101@gmail.com'
+    msg['From'] = 'your-email-here'
     msg['To'] = f'{request.POST["email"]}'
 
     text = MIMEText(f'{request.POST["body"]}')
@@ -19,9 +19,9 @@ def send(request):
     msg.attach(text)
 
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)        
-    server.login("rishikeshkarkhanis0101@gmail.com", "ajmzippuoknpingm")
+    server.login("your-email-here", "your-password-here")
 
-    server.sendmail("rishikeshkarkhanis0101@gmail.com", request.POST["email"], msg.as_string())
+    server.sendmail("your-email-here", request.POST["email"], msg.as_string())
 
     server.quit()
 
